@@ -1,0 +1,148 @@
+.noselect {
+	-webkit-user-select: none;
+	/* Chrome/Safari */
+
+	-moz-user-select: none;
+	/* Firefox */
+
+	-ms-user-select: none;
+	/* IE10+ */
+
+}
+
+.inline-calendar,
+.calendar-info {
+	/*margin: 30px auto;
+	max-width: 600px;*/
+	font-size: 14px;
+}
+.inline-calendar .clndr .clndr-controls {
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	padding: 5px;
+	margin: 0;
+	background: #C1C1C1;
+	color: #FFF;
+}
+.inline-calendar .clndr .clndr-controls .month {
+	float: left;
+	width: 33%;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.inline-calendar .clndr .clndr-controls .clndr-control-button {
+	float: left;
+	width: 33%;
+}
+.inline-calendar .clndr .clndr-controls .clndr-control-button.rightalign {
+	text-align: right;
+	width: 34%;
+}
+.inline-calendar .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+	cursor: pointer;
+	-webkit-user-select: none;
+	/* Chrome/Safari */
+
+	-moz-user-select: none;
+	/* Firefox */
+
+	-ms-user-select: none;
+	/* IE10+ */
+
+}
+
+.inline-calendar .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+	cursor: pointer;
+	-webkit-user-select: none;
+	/* Chrome/Safari */
+
+	-moz-user-select: none;
+	/* Firefox */
+
+	-ms-user-select: none;
+	/* IE10+ */
+
+}
+
+.inline-calendar .clndr .clndr-table {
+	table-layout: fixed;
+	width: 100%;
+}
+.inline-calendar .clndr .clndr-table .header-days {
+	height: 30px;
+	font-size: 12px;
+	background: #CCC;
+}
+.inline-calendar .clndr .clndr-table .header-days .header-day {
+	vertical-align: middle;
+	text-align: center;
+	color: #FFF;
+}
+
+.inline-calendar .clndr .clndr-table tr {
+	height: 85px;
+}
+.inline-calendar .clndr .clndr-table tr td {
+	vertical-align: top;
+}
+.inline-calendar .clndr .clndr-table tr .day {
+	width: 100%;
+	height: inherit;
+}
+.inline-calendar .clndr .clndr-table tr .day .actions-container {
+	width: 100%;
+	text-align: center;
+}
+.inline-calendar .clndr .clndr-table tr .day:hover {
+	background: #eee;
+}
+.inline-calendar .clndr .clndr-table tr .day.today,
+.calendar-info .calendar-legend .day.today {
+	background: #9AD6E3;
+}
+.inline-calendar .clndr .clndr-table tr .day.today:hover {
+	background: #72c6d8;
+}
+.inline-calendar .clndr .clndr-table tr .day.today.event {
+	background: #a7dbc1;
+}
+.inline-calendar .clndr .clndr-table tr .day.event,
+.calendar-info .calendar-legend .day.event {
+	background: #f38996;
+	color: #FFF;
+}
+.inline-calendar .clndr .clndr-table tr .day.event:hover {
+	background: #ef5c6e;
+}
+.inline-calendar .clndr .clndr-table tr .day .day-contents {
+	box-sizing: border-box;
+	padding: 8px;
+	font-size: 12px;
+	text-align: right;
+}
+.inline-calendar .clndr .clndr-table tr .empty,
+.inline-calendar .clndr .clndr-table tr .adjacent-month {
+	width: 100%;
+	height: inherit;
+	background: #eee;
+}
+.inline-calendar .clndr .clndr-table tr .empty:hover,
+.inline-calendar .clndr .clndr-table tr .adjacent-month:hover {
+	background: #ddd;
+}
+.calendar-info {
+	margin-top: 15px;
+}
+.calendar-info .calendar-legend {
+	line-height: 14px;
+	display: inline-block;
+	margin-right: 25px;
+}
+.calendar-info .calendar-legend .day {
+	width: 12px;
+	height: 12px;
+	border: 1px solid #FFF;
+	display: inline-block;
+}
