@@ -1,7 +1,7 @@
 <?php
 //##copyright##
 
-if ($iaView->getRequestType() == iaView::REQUEST_JSON && $iaView->blockExists('availability_calendar'))
+if ($iaView->getRequestType() == iaView::REQUEST_JSON)
 {
 	$iaDb->setTable('availability_calendar');
 	switch ($pageAction)

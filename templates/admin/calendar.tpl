@@ -4,7 +4,7 @@
 				<h4>{lang key='availability_calendar'}</h4>
 			</div>
 
-			<div class="inline-calendar" id="avcalendar" data-member="{if isset($member.id)}{$member.id}{/if}"{if isset($item)} data-item="{if isset($item.item)}{$item.item}{/if}" data-item-id="{if isset($item.id)}{$item.id}{/if}"{/if}></div>
+			<div class="inline-calendar" id="avcalendar" data-member="{if isset($member.id)}{$member.id}{/if}"{if isset($item)} data-item="{if isset($item.item)}{$item.item}{/if}" data-item-id="{if isset($id)}{$id}{/if}"{/if}></div>
 			<div class="calendar-info">
 				<div class="calendar-legend"><div class="day event"></div> {lang key='booked'}</div>
 				<div class="calendar-legend"><div class="day today"></div> {lang key='today'}</div>

@@ -4,9 +4,9 @@
 	<summary>Availability calendar for all items</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>3.4.0</version>
+	<version>4.0.0</version>
 	<date>2015-09-01</date>
-	<compatibility>3.4</compatibility>
+	<compatibility>4.0</compatibility>
 
 	<adminpages>
 		<page url="availability/" name="availability" filename="index">Availability Calendar</page>
