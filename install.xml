@@ -17,8 +17,8 @@
 	</pages>
 
 	<config group="miscellaneous" name="av_divider" type="divider" description="Availability Calendar Configuration">Availability Calendar Configuration</config>
-	<config group="miscellaneous" name="availability_calendar_items_enabled" type="itemscheckbox" description="List of items calendar is enabled for" private="0">autos,articles,estates,listings,ypages,coupons</config>
-	<config group="miscellaneous" name="availability_calendar_items_implemented" type="hidden">members,autos,articles,estates,listings,ypages,coupons</config>
+	<config group="miscellaneous" name="availability_calendar_items_enabled" type="itemscheckbox" description="List of items calendar is enabled for" private="0">autos,articles,estates,listings,venues,coupons</config>
+	<config group="miscellaneous" name="availability_calendar_items_implemented" type="hidden">members,autos,articles,estates,listings,venues,coupons</config>
 
 	<phrases>
 		<phrase category="common" key="availability_calendar">Availability Calendar</phrase>
