@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<plugin name="availability_calendar">
-	<title>Availability calendar</title>
-	<summary>Availability calendar for all items</summary>
-	<author>Intelliants LLC</author>
-	<contributor>Intelliants LLC</contributor>
-	<version>4.0.0</version>
-	<date>2016-01-11</date>
-	<compatibility>4.0</compatibility>
+<module type="plugin" name="availability_calendar">
+    <title>Availability calendar</title>
+    <summary>Availability calendar for all items</summary>
+    <author>Intelliants LLC</author>
+    <contributor>Intelliants LLC</contributor>
+    <version>4.1.0</version>
+    <date>2017-04-19</date>
+    <compatibility>4.1</compatibility>
 
-	<adminpages>
-		<page url="availability/" name="availability" filename="index">Availability Calendar</page>
-	</adminpages>
+    <adminpages>
+        <page url="availability/" name="availability" filename="index">Availability Calendar</page>
+    </adminpages>
 
-	<pages>
-		<page url="availability/" name="availability" filename="index" service="1">Availability Calendar</page>
-	</pages>
+    <pages>
+        <page url="availability/" name="availability" filename="index" service="1">Availability Calendar</page>
+    </pages>
 
-	<config group="miscellaneous" name="av_divider" type="divider" description="Availability Calendar Configuration">Availability Calendar Configuration</config>
-	<config group="miscellaneous" name="availability_calendar_items_enabled" type="itemscheckbox" description="List of items calendar is enabled for" private="0">autos,articles,estates,listings,venues,coupons</config>
-	<config group="miscellaneous" name="availability_calendar_items_implemented" type="hidden">members,autos,articles,estates,listings,venues,coupons</config>
+    <config group="miscellaneous" name="av_divider" type="divider" description="Availability Calendar Configuration">Availability Calendar Configuration</config>
+    <config group="miscellaneous" name="availability_calendar_items_enabled" type="itemscheckbox" description="List of items calendar is enabled for" private="0">autos,articles,estates,listings,venues,coupons</config>
+    <config group="miscellaneous" name="availability_calendar_items_implemented" type="hidden">members,autos,articles,estates,listings,venues,coupons</config>
 
-	<phrases>
-		<phrase category="common" key="availability_calendar">Availability Calendar</phrase>
-		<phrase category="common" key="add_acalendar">Set Availability settings</phrase>
-		<phrase category="common" key="av_unknown_item">Unknown item.</phrase>
-		<phrase category="common" key="av_not_your_item">You may not set availablility terms for this item. You can only configure own items.</phrase>
-		<phrase category="common" key="av_your_start_date_must_be_greater">Your start date cannot be greater than end date.</phrase>
-		<phrase category="common" key="av_saved">Availability settings saved.</phrase>
-		<phrase category="common" key="av_error_saving">Error saving availability settings. Please contact site administrator.</phrase>
-		<phrase category="common" key="av_add">Set Availability</phrase>
-		<phrase category="common" key="av_delete">Remove Availability</phrase>
-		<phrase category="common" key="av_edit">Edit Availability</phrase>
-		<phrase category="common" key="av_description">Description</phrase>
-		<phrase category="common" key="av_deleted">Successfully deleted</phrase>
-		<phrase category="common" key="av_empty">Description empty</phrase>
-		<phrase category="common" key="accounts">Accounts</phrase>
-		<phrase category="common" key="booked">Booked</phrase>
-		<phrase category="common" key="today">Today</phrase>
-	</phrases>
+    <phrases>
+        <phrase category="common" key="availability_calendar">Availability Calendar</phrase>
+        <phrase category="common" key="add_acalendar">Set Availability settings</phrase>
+        <phrase category="common" key="av_unknown_item">Unknown item.</phrase>
+        <phrase category="common" key="av_not_your_item">You may not set availablility terms for this item. You can only configure own items.</phrase>
+        <phrase category="common" key="av_your_start_date_must_be_greater">Your start date cannot be greater than end date.</phrase>
+        <phrase category="common" key="av_saved">Availability settings saved.</phrase>
+        <phrase category="common" key="av_error_saving">Error saving availability settings. Please contact site administrator.</phrase>
+        <phrase category="common" key="av_add">Set Availability</phrase>
+        <phrase category="common" key="av_delete">Remove Availability</phrase>
+        <phrase category="common" key="av_edit">Edit Availability</phrase>
+        <phrase category="common" key="av_description">Description</phrase>
+        <phrase category="common" key="av_deleted">Successfully deleted</phrase>
+        <phrase category="common" key="av_empty">Description empty</phrase>
+        <phrase category="common" key="accounts">Accounts</phrase>
+        <phrase category="common" key="booked">Booked</phrase>
+        <phrase category="common" key="today">Today</phrase>
+    </phrases>
 
-	<hooks>
-		<hook name="smartyAdminSubmitItemBeforeFooter" type="smarty" filename="plugins/availability_calendar/templates/admin/calendar.tpl"><![CDATA[]]></hook>
-		<hook name="smartyListingSubmitBeforeFooter" type="smarty" filename="plugins/availability_calendar/templates/front/calendar.tpl"><![CDATA[]]></hook>
-		<hook name="smartyViewListingBeforeFooter" type="smarty" filename="plugins/availability_calendar/templates/front/block.calendar.tpl"><![CDATA[]]></hook>
-	</hooks>
+    <hooks>
+        <hook name="smartyAdminSubmitItemBeforeFooter" type="smarty" page_type="admin" filename="calendar"><![CDATA[]]></hook>
+        <hook name="smartyListingSubmitBeforeFooter" type="smarty" page_type="front" filename="calendar"><![CDATA[]]></hook>
+        <hook name="smartyViewListingBeforeFooter" type="smarty" page_type="front" filename="block.calendar"><![CDATA[]]></hook>
+    </hooks>
 
-	<install>
-		<sql>
-			<![CDATA[
+    <install>
+        <sql>
+            <![CDATA[
 CREATE TABLE `{prefix}availability_calendar` (
   `id` mediumint(7) unsigned NOT NULL auto_increment,
   `item` varchar(32) NOT NULL,
@@ -58,15 +58,15 @@ CREATE TABLE `{prefix}availability_calendar` (
   `description` tinytext NOT NULL,
   PRIMARY KEY (`id`)
 ) {mysql_version};
-			]]>
-		</sql>
-	</install>
+            ]]>
+        </sql>
+    </install>
 
-	<uninstall>
-		<sql>
-			<![CDATA[
+    <uninstall>
+        <sql>
+            <![CDATA[
 DROP TABLE IF EXISTS `{prefix}availability_calendar`;
-			]]>
-		</sql>
-	</uninstall>
-</plugin>
+            ]]>
+        </sql>
+    </uninstall>
+</module>
