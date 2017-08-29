@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     $('#avcalendar-fieldgroup').insertAfter('.wrap-list .wrap-group:last').show();
 
     var aUrl = intelli.config.admin_url + '/availability/';
@@ -40,8 +40,8 @@ $(function () {
                 clickedDay = target.date._i;
             }
         },
-        doneRendering: function () {
-            params = {
+        doneRendering: function() {
+            var params = {
                 item_id: $('#avcalendar').data('item-id'),
                 item: $('#avcalendar').data('item'),
                 month: this.month.format('YYYY-MM')
@@ -49,8 +49,8 @@ $(function () {
 
             tmpThis = this;
 
-            if (-1 == $.inArray(params.month, monthsRendered)) {
-                $.get(aUrl + 'read.json', params, function (data) {
+            if (-1 === $.inArray(params.month, monthsRendered)) {
+                $.get(aUrl + 'read.json', params, function(data) {
                     tmpThis.addEvents(data);
                 });
 
@@ -68,30 +68,21 @@ $(function () {
             bookBtn.append(bookIcon);
             unbookBtn.append(unbookIcon);
 
-
-            $('#avcalendar .day:not(.adjacent-month)')
-                .mouseenter(function () {
+            $('.day:not(.adjacent-month)', '#avcalendar')
+                .mouseenter(function() {
                     thisDay = this;
 
-                    actContainer.html('');
-
-                    if ($(this).hasClass('event')) {
-                        actContainer.append(unbookBtn);
-                    }
-                    else {
-                        actContainer.append(bookBtn);
-                    }
-
+                    actContainer.html('').append($(this).hasClass('event') ? unbookBtn : bookBtn);
 
                     $(this).append(actContainer);
                 })
-                .mouseleave(function () {
+                .mouseleave(function() {
                     $('.actions-container', this).remove();
                 });
         }
     });
 
-    $(document).on('click', '#avcalendar .day .book', function () {
+    $(document).on('click', '#avcalendar .day .book', function() {
         newEvent = {
             date: clickedDay
             // title: "New event"
@@ -99,22 +90,20 @@ $(function () {
 
         avCalendar.addEvents([newEvent]);
 
-        params = {
+        intelli.post(aUrl + 'add.json', {
             item_id: $('#avcalendar').data('item-id'),
             item: $('#avcalendar').data('item'),
             date: clickedDay
-        };
-        $.post(aUrl + 'add.json', params);
+        });
+
         intelli.notifFloatBox({msg: _t('saved'), autohide: true});
-
-
     });
 
-    $(document).on('click', '#avcalendar .day .unbook', function () {
+    $(document).on('click', '#avcalendar .day .unbook', function() {
         allEvents = avCalendar.options.events;
 
         $.each(allEvents, function (i, v) {
-            if (typeof v != undefined && v.date == clickedDay) {
+            if (typeof v !== 'undefined' && v.date == clickedDay) {
                 allEvents.splice(i, 1);
                 return false;
             }
@@ -122,12 +111,12 @@ $(function () {
 
         avCalendar.setEvents(allEvents);
 
-        params = {
+        intelli.post(aUrl + 'delete.json', {
             item_id: $('#avcalendar').data('item-id'),
             item: $('#avcalendar').data('item'),
             date: clickedDay
-        };
-        $.post(aUrl + 'delete.json', params);
+        });
+
         intelli.notifFloatBox({msg: _t('saved'), autohide: true});
     });
 });
