@@ -65,20 +65,6 @@ if ($iaView->getRequestType() == iaView::REQUEST_JSON)
 					$out['message'] = iaLanguage::get('av_error_saving');
 				}
 			}
-			// else
-			// {
-			// 	$data['id'] = $id;
-			// 	if ($iaDb->update($data) !== false)
-			// 	{
-			// 		$out['success'] = true;
-			// 		$out['message'] = iaLanguage::get('av_saved');
-			// 		$out['error'] = false;
-			// 	}
-			// 	else
-			// 	{
-			// 		$out['message'] = iaLanguage::get('av_error_saving');
-			// 	}
-			// }
 
 			if ($out['error'] === false)
 			{
